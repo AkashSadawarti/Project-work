@@ -1,0 +1,26 @@
+<div class="container my-5">
+    <div class="mb-3 row text-center">
+        <h1>Login Form</h1>
+    </div>
+    <form class="row g-3 needs-validation" #user="ngForm" (ngSubmit)="login(user.value)">
+        <div class="mb-3 row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="name" ngModel="user.name" id="name" placeholder="Enter Name">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="userName" class="col-sm-2 col-form-label">userName</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="IDname" ngModel="user.IDname" id="userName" placeholder="Enter UserName">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" name="password" ngModel="user.password" id="inputPassword" placeholder="Enter Password">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">submit</button>
+    </form>
+</div>
