@@ -1,0 +1,9 @@
+<form #prime="ngForm" (ngSubmit)="getPrime(prime.value)">
+    <label for="primeno">Enter Number : </label>
+    <input type="number" id="primeno" name="num" ngModel="prime.num" placeholder="Enter number">
+    <br><br>
+    <button value="submit">submit</button>
+    <br><br>
+    Result : <input type="text" ngModel="prime.Result" name="Result">
+             <h2>{{prime.num}}</h2>
+</form>
