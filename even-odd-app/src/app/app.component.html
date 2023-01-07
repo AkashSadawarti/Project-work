@@ -1,0 +1,33 @@
+<br>
+<h1> Topic : {{title}} </h1>
+<hr>
+<form class="row g-3">
+    <h3>Number : </h3>
+    <div class="col-auto">
+        <label for="inputNumber" class="visually-hidden">Enter Number</label>
+        <!-- [(ngModel)] is used for two way binding -->
+        <input type="text" class="form-control" id="inputNumber" name="number" [(ngModel)]="number"
+            placeholder="Enter Number">
+    </div>
+    <div class="col-auto">
+        <button type="submit" (click)="evenOdd()" class="btn btn-primary mb-3">submit</button>
+    </div>
+    <div class="col-auto">
+        <button type="submit" (click)="evenArray()" class="btn btn-primary mb-3">Even Array</button>
+    </div>
+    <div class="col-auto">
+        <button type="submit" (click)="oddArray()" class="btn btn-primary mb-3">Odd Array</button>
+    </div>
+    <br>
+    <div class="col-auto ">
+        <button type="submit" (click)="getPalindrome()" class="btn btn-primary mb-3">Palindrome</button>
+    </div>
+    <div>
+        <label class="form-label">{{result}}</label>
+    </div>
+    <hr>
+    <div *ngFor="let e of elements"> 
+        {{e}}
+    </div>
+
+</form>
