@@ -1,0 +1,19 @@
+
+<h2> Topic : {{head}}</h2>
+<hr>
+<form class="row g-3">
+    <h3>Number : </h3>
+    <div class="col-auto">
+        <label for="inputNumber" class="visually-hidden">Enter Number</label>
+        <!-- [(ngModel)] is used for two way binding -->
+        <input type="text" class="form-control" id="inputNumber" name="number" [(ngModel)]="number"
+            placeholder="Enter Number">
+        <span style="color: red;">  {{msg}} </span>
+    </div>
+    <div class="col-auto">
+        <button type="submit" (click)="getSmallestNumber()" class="btn btn-primary mb-3">Smallest Number</button>
+    </div>
+    <hr>
+    <div>
+        <p>{{result}}</p>
+    </div>
