@@ -73,7 +73,7 @@ export class PagesComponent {
     this.result = `Result : ${resArray} is reversed Array`
   }
 
-  getOddElements(){
+  getEvenElements(){
     this.result= "";
     if(this.number == undefined){
       this.msg = "Enter vslid input";
@@ -87,4 +87,6 @@ export class PagesComponent {
     }
     this.result = `Result : ${resArray} is an Even Elements in Array.`
   }
+
+  
 }
