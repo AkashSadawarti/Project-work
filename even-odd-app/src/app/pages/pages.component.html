@@ -1,6 +1,5 @@
 
 <h2> Topic : {{head}}</h2>
-<hr>
 <form class="row g-3">
     <h3>Number : </h3>
     <div class="col-auto">
@@ -13,7 +12,15 @@
     <div class="col-auto">
         <button type="submit" (click)="getSmallestNumber()" class="btn btn-primary mb-3">Smallest Number</button>
     </div>
-    <hr>
+    <div class="col-auto">
+        <button type="submit" (click)="getLargestNumber()" class="btn btn-primary mb-3">Largest Number</button>
+    </div>
+    <div class="col-auto">
+        <button type="submit" (click)="getArrayLength()" class="btn btn-primary mb-3">Array Length</button>
+    </div>
+    <div class="col-auto">
+        <button type="submit" (click)="getReverseArray()" class="btn btn-primary mb-3">Reverse Array</button>
+    </div>
     <div>
         <p>{{result}}</p>
     </div>
