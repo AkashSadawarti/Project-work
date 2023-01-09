@@ -65,11 +65,26 @@ export class PagesComponent {
     }
     let newArray = this.number.split(",").map(Number);
     let resArray = [];
-    for(let i=newArray.length; i > 0;i--){
+    for(let i=newArray.length; i >= 0;i--){
 
        resArray.push(newArray[i]);  
       }
-      console.log(resArray);
+      // console.log(resArray);
     this.result = `Result : ${resArray} is reversed Array`
+  }
+
+  getOddElements(){
+    this.result= "";
+    if(this.number == undefined){
+      this.msg = "Enter vslid input";
+    }
+    let newArray = this.number.split(",").map(Number);
+    let resArray = [];
+    for(let i =0;i<newArray.length;i++){
+      if(newArray[i]%2 == 0){
+        resArray.push(newArray[i]);
+      }
+    }
+    this.result = `Result : ${resArray} is an Even Elements in Array.`
   }
 }
