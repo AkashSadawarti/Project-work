@@ -76,7 +76,7 @@ export class PagesComponent {
   getEvenElements(){
     this.result= "";
     if(this.number == undefined){
-      this.msg = "Enter vslid input";
+      this.msg = "Enter valid input";
     }
     let newArray = this.number.split(",").map(Number);
     let resArray = [];
@@ -88,5 +88,18 @@ export class PagesComponent {
     this.result = `Result : ${resArray} is an Even Elements in Array.`
   }
 
-  
+  getOddElements(){
+    this.result= "";
+    if(this.number == undefined){
+      this.msg = "Enter valid input";
+    }
+    let newArray = this.number.split(",").map(Number);
+    let resArray = [];
+    for(let i =0;i<newArray.length;i++){
+      if(newArray[i]%2 == 1){
+        resArray.push(newArray[i]);
+      }
+    }
+    this.result = `Result : ${resArray} is an Odd Elements in Array.`
+  }
 }
