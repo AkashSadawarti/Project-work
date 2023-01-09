@@ -13,20 +13,63 @@ export class PagesComponent {
   msg = "";
   result = "";
 
-  getSmallestNumber (){
+  getSmallestNumber() {
+    if (this.number == undefined) {
+      this.msg = "Enter valid input."
+      return;
+    }
+    let newArray = this.number.split(',').map(Number); // ['1','2'] => [1,2] map converts string to number.
+    let min = newArray[0];
+    for (let i = 0; i < newArray.length; i++) {
+      if (min > newArray[i]) {
+        min = newArray[i];
+      }
+    }
+    console.log(min);
+    this.result = `Result : ${min} is a smallest number in array.`
+  }
+
+  getLargestNumber() {
+    this.result = "";
+    if (this.number == undefined) {
+      this.msg = "Enter valid input."
+      return;
+    }
+    let newArray = this.number.split(',').map(Number); // ['1','2'] => [1,2] map converts string to number.
+    let min = newArray[0];
+    for (let i = 0; i < newArray.length; i++) {
+      if (min < newArray[i]) {
+        min = newArray[i];
+      }
+    }
+    console.log(min);
+    this.result = `Result : ${min} is a Largest number in array.`
+  }
+
+  getArrayLength() {
+    this.result = "";
+    if (this.number == undefined) {
+      this.msg = "Enter valid input."
+      return;
+    }
+    let newArray = this.number.split(",").map(Number);
+    let ArrayLen = newArray.length;
+    this.result = `Result : ${ArrayLen} is the length of Array.`
+  }
+
+  getReverseArray(){
+    this.result = "";
     if(this.number == undefined){
       this.msg = "Enter Valid input."
       return ;   
     }
-   let newArray = this.number.split(',').map(Number); // ['1','2'] => [1,2] map converts string to number.
-   let min = newArray[0];
-   for(let i = 0 ; i < newArray.length; i++){
-    if(min > newArray[i]){
-      min = newArray[i];
-    }
-   }
-   console.log(min);
-   this.result = `${min} is a smallest number in array.`
-  }
+    let newArray = this.number.split(",").map(Number);
+    let resArray = [];
+    for(let i=newArray.length; i > 0;i--){
 
+       resArray.push(newArray[i]);  
+      }
+      console.log(resArray);
+    this.result = `Result : ${resArray} is reversed Array`
+  }
 }
