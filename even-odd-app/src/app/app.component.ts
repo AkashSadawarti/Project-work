@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Even Odd Program';
+ 
 
   number: number;
   result = ""
@@ -58,9 +59,9 @@ export class AppComponent {
     this.result = " ";
     this.elements = [];
     let temp = this.number;
-    let rem ;
+    let rem;
     let reverse = 0;
-    while(temp > 0) {
+    while (temp > 0) {
       rem = temp % 10; //1 
       reverse = reverse * 10 + rem; //1
       temp = Math.floor(temp / 10);
@@ -69,11 +70,32 @@ export class AppComponent {
     if (this.number == reverse) {
       this.result = this.number + "Number is palindrome."
     } else {
-      this.result = this.number + "Number is not palindrome."
+      this.result = this.number + " Number is not palindrome."
     }
   }
 
-  getArmstrong(){
+  getArmstrong() {
+    this.result = "";
+    this.elements = [];
+    let rem;
+    let newNum = 0;
+    let temp = this.number;
+    while (temp > 0) {//153
+      rem = temp % 10; //rem = 3
+      newNum = newNum * 10 + rem; //newNum = 3
+      temp = Math.pow(newNum, temp)
+    }
+    console.log(newNum);
+    if (this.number == newNum) {
+       this.result = `${this.number} is Armstrong Number.`;
+    } else {
+      this.result = `${this.number} is not Armstrong Number.`;
+    }
+  }
+
+  getSmallestNumber(){
+    this.elements=[];
+    this.result = " ";
 
   }
 }
