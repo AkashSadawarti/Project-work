@@ -57,20 +57,22 @@ export class PagesComponent {
     this.result = `Result : ${ArrayLen} is the length of Array.`
   }
 
+   resArray: number[] = [];
   getReverseArray(){
     this.result = "";
+    
     if(this.number == undefined){
       this.msg = "Enter Valid input."
       return ;   
     }
     let newArray = this.number.split(",").map(Number);
-    let resArray = [];
+  
     for(let i=newArray.length; i >= 0;i--){
 
-       resArray.push(newArray[i]);  
+       this.resArray.push(newArray[i]);  
       }
       // console.log(resArray);
-    this.result = `Result : ${resArray} is reversed Array`
+    this.result = `Result : ${this.resArray} is reversed Array`
   }
 
   getEvenElements(){
