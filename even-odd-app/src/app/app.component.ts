@@ -92,5 +92,4 @@ export class AppComponent {
       this.result = `${this.number} is not Armstrong Number.`;
     }
   }
-
 }
