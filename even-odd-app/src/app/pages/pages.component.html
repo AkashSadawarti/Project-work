@@ -1,4 +1,3 @@
-
 <h2> Topic : {{head}}</h2>
 <form class="row g-3">
     <h3>Number : </h3>
@@ -7,7 +6,7 @@
         <!-- [(ngModel)] is used for two way binding -->
         <input type="text" class="form-control" id="inputNumber" name="number" [(ngModel)]="number"
             placeholder="Enter Number">
-        <span style="color: red;">  {{msg}} </span>
+        <span style="color: red;"> {{msg}} </span>
     </div>
     <div class="col-auto">
         <button type="submit" (click)="getSmallestNumber()" class="btn btn-primary mb-3">Smallest Number</button>
@@ -18,8 +17,10 @@
     <div class="col-auto">
         <button type="submit" (click)="getArrayLength()" class="btn btn-primary mb-3">Array Length</button>
     </div>
-    <div class="col-auto">
-        <button type="submit" (click)="getReverseArray()" class="btn btn-primary mb-3">Reverse Array</button>
+    <div class="col-auto" >
+      
+            <button type="submit" (click)="getReverseArray()" class="btn btn-primary mb-3">Reverse Array</button>
+       
     </div>
     <div class="col-auto">
         <button type="submit" (click)="getEvenElements()" class="btn btn-primary mb-3">Even Elements</button>
@@ -27,6 +28,9 @@
     <div class="col-auto">
         <button type="submit" (click)="getOddElements()" class="btn btn-primary mb-3">Odd Elements</button>
     </div>
-    <div>
-        <p>{{result}}</p>
+    <div >
+        <div id="example2" *ngFor="let i of resArray">
+
+            <p>{{i}}</p>
+        </div>
     </div>
