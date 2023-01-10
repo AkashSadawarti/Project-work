@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Even Odd Program';
- 
 
   number: number;
   result = ""

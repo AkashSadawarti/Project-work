@@ -28,9 +28,11 @@
     <div class="col-auto">
         <button type="submit" (click)="getOddElements()" class="btn btn-primary mb-3">Odd Elements</button>
     </div>
+    <div>
+        <p>{{result}}</p>
+    </div>
     <div >
-        <div id="example2" *ngFor="let i of resArray">
-
-            <p>{{i}}</p>
-        </div>
+        <span id="example2" *ngFor="let i of Array">
+            <span>{{i}}</span>
+        </span>
     </div>
