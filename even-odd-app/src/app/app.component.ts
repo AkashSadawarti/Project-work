@@ -93,9 +93,4 @@ export class AppComponent {
     }
   }
 
-  getSmallestNumber(){
-    this.elements=[];
-    this.result = " ";
-
-  }
 }
