@@ -66,6 +66,7 @@ export class PagesComponent {
     this.result = `Result : ${ArrayLen} is the length of Array.`
   }
 
+  //Reverse Array 
   getReverseArray(){
     this.result = "";
     this.Array = []
