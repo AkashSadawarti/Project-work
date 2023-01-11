@@ -1,5 +1,8 @@
-<br>
-<h1> Topic : {{title}}  </h1>
+  <div class="container1 vh-100">
+      
+      <p class="date"> Date : {{toDate}}</p>
+      <br>
+      <h2> Topic : {{title}}</h2>
 <hr>
 <form class="row g-3">
     <h3>Number : </h3>
@@ -8,18 +11,18 @@
         <!-- [(ngModel)] is used for two way binding -->
         <input type="text" class="form-control" id="inputNumber" name="number" [(ngModel)]="number"
             placeholder="Enter Number">
-    </div>
-    <div class="col-auto">
-        <button type="submit" (click)="evenOdd()" class="btn btn-primary mb-3">submit</button>
-    </div>
-    <div class="col-auto">
-        <button type="submit" (click)="evenArray()" class="btn btn-primary mb-3">Even Array</button>
-    </div>
-    <div class="col-auto">
-        <button type="submit" (click)="oddArray()" class="btn btn-primary mb-3">Odd Array</button>
-    </div>
-    <br>
-    <div class="col-auto ">
+        </div>
+        <div class="col-auto">
+            <button type="submit" (click)="evenOdd()" class="btn btn-primary mb-3">submit</button>
+        </div>
+        <div class="col-auto">
+            <button type="submit" (click)="evenArray()" class="btn btn-primary mb-3">Even Array</button>
+        </div>
+        <div class="col-auto">
+            <button type="submit" (click)="oddArray()" class="btn btn-primary mb-3">Odd Array</button>
+        </div>
+        <br>
+        <div class="col-auto ">
         <button type="submit" (click)="getPalindrome()" class="btn btn-primary mb-3">Palindrome</button>
     </div>
     <div class="col-auto ">
@@ -32,10 +35,11 @@
     <div *ngFor="let e of elements"> 
         {{e}}
     </div>
-
+    
 </form>
 <!-- <app-pages></app-pages> -->
-<a routerLink="pages" target="_blank">Click For Array Operations</a>
+<a routerLink="pages" target="_self">Click For Array Operations</a>
 
 <router-outlet></router-outlet>
-<hr>
+
+</div>
