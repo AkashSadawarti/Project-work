@@ -3,10 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  template:`<p>short : {{toDate | date:'short'}} </p>`, //Angular pipe Example of Date  
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'Even Odd Program';
+  toDate : Date = new Date();
 
   number: number;
   result = ""
