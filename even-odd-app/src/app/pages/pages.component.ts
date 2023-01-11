@@ -3,13 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-pages',
   templateUrl: './pages.component.html',
-  template:`<p>medium : {{toDate | date:'medium'}} </p>`, //Angular pipe Example of Date
   styleUrls: ['./pages.component.css']
 })
 export class PagesComponent {
   head = 'Array Operations';
   note = 'Enter comma seperated values';
-  toDate : Date = new Date();
+  
   
   number !: string;
   msg = "";
