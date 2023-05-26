@@ -1,0 +1,27 @@
+<p>data-binding works!</p>
+<h1>Welcome to {{title}}</h1>
+<h3>Good Morning {{name}}</h3>
+<h2>Topic of the Day : {{topic}}</h2>
+<ul>
+    <h3>Types</h3>
+    <li>1. {{topic1}}</li>
+    <p> ## interpolations are generally is used to show data as it is just by declaring its variable and shown on screen. But interpolation binding is <strong>only used for string values.</strong>  
+    </p>
+    <hr>
+    <li>2. {{topic2}}</li>
+    <p> ## [] are generally is used to show data of property declaring its variable and path or any api object property and shown on screen. <strong>It can bind boolean,string,numbers,all datatypes values </strong>
+    </p>
+    <img class="image" [src]="image" alt="boy" >
+    <hr>
+    <li>3. {{topic3}}</li>
+    <p>## Event binding is done specificly to event ot trigger while user interaction using <strong>click or keypress</strong></p>
+    e.g <button (click)="onClick()">Follow Learning</button>
+    <hr>
+    <li>4. {{topic4}}</li>
+    <p>## Two way binding is done for interaction in both <strong>UI and Component</strong> that is why it is named as 2 Way binding. <br> 2 Way binding is achieved using <strong> [(ngModel)] ="" </strong>.</p>
+    eg..  
+    <input [(ngModel)] ="value" type="text"> <br>
+     <h2>Value Entered : <Strong>{{value}}</Strong></h2> 
+</ul>
+
+
