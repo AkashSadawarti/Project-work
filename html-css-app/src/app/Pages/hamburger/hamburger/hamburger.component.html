@@ -1,0 +1,15 @@
+<p>hamburger works!</p>
+<!-- hamburger-menu.component.html -->
+<button class="hamburger" (click)="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  
+  <div class="menu" [ngClass]="{ 'open': isMenuOpen }">
+    <ul>
+        <li>test1</li>
+        <li>test1</li>
+        <li>test1</li>
+    </ul>
+  </div>
