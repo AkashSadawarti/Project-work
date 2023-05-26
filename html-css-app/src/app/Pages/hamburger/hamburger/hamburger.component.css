@@ -1,0 +1,22 @@
+/* hamburger-menu.component.css */
+.hamburger {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin-bottom: 4px;
+  }
+  
+  .menu {
+    display: none;
+  }
+  
+  .menu.open {
+    display: block;
+    /* Additional styles for the open menu */
+  }
