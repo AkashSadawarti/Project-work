@@ -1,0 +1,51 @@
+
+<div class="heading">
+    <h2>To-do App</h2>  
+</div>
+
+
+<form class="row g-3">
+    <div class="col-md-8">
+      <label for="title" class="form-label">Title</label>
+      <input type="text"  ngModel="todo.title" name="title" [(ngModel)]="todoModel.title" class="form-control" id="title">
+    </div>
+    <div class="col-md-3">
+      <label for="day" class="form-label">Day</label>
+      <input type="text"  ngModel="todo.day" name="day" [(ngModel)]="todoModel.day" class="form-control" id="day">
+    </div>
+    <div class="col-md-3">
+      <label for="date"  class="form-label">Date</label>
+      <input type="text" ngModel="todo.date" name="date" [(ngModel)]="todoModel.date" class="form-control" id="date">
+    </div>
+    <div class="col-md-2">
+      <label for="status" class="form-label">status</label>
+      <input type="text" ngModel="todo.status" name="status" [(ngModel)]="todoModel.status" class="form-control" id="status">
+    </div>
+    <div class="col-md-2">
+      <button type="submit" (click)="saveChanges()" class="btn btn-primary">Create Task</button>
+    </div>
+  </form>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Sr No.</th>
+        <th scope="col">Title</th>
+        <th scope="col">Day</th>
+        <th scope="col">Status</th>
+        <th scope="col">Date</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of allTasks;let i = index">
+        <td>{{i+1}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.day}}</td>
+        <td>{{item.status}}</td>
+        <td>{{item.date}}</td>
+        <!-- <td><button class="bg-success" (click)="editTask(item.id)">Update</button></td> -->
+        <td><button class="bg-danger" (click)="delete(item)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
