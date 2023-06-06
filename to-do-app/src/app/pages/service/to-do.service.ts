@@ -24,11 +24,15 @@ export class ToDoService {
     return this.http.get(`${this.BASE_URL}`);
   }
 
-  updateTask(id : ToDo): Observable<Object> {
-    return this.http.put(`${this.BASE_URL}`,id)
+  getTaskById(taskId : ToDo): Observable<Object> {
+    return this.http.get(`${this.BASE_URL}/${taskId.id}`);
   }
 
-  deleteTask(task: ToDo): Observable<void> {
+  updateTask( task:ToDo): Observable<Object> {
+    return this.http.put(`${this.BASE_URL}/${task.id}`,task);
+  }
+
+  deleteTask(task : ToDo): Observable<void> {
     return this.http.delete<void>(`${this.BASE_URL}/${task.id}`)
   }
 }
