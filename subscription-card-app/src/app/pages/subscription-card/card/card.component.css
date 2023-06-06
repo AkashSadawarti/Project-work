@@ -1,0 +1,21 @@
+.card{
+    background-color: cadetblue;
+}
+.card-title{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.card-text{
+    text-align: center;
+}
+.card-text-price{
+    font-size: 75px;
+    font-weight: bold;
+    text-align: center;
+}
+.list-group-item{
+    font-weight: bold;
+    background-color: cadetblue;
+    font-size: 10px;
+}

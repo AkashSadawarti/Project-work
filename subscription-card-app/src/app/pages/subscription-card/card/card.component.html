@@ -1,0 +1,22 @@
+<div class="container">
+  <div>
+    <h1>Subscription Card</h1>
+  </div>
+  <div *ngFor="let item of card.subscriptions">
+    <div class="card m-4 p-5" style="width: 18rem; height: 30rem;">
+      <div>
+        <h2 class="card-title"><strong>{{item.type}}</strong></h2>
+      </div>
+      <p class="card-text">{{item.title}}</p>
+      <p class="card-text-price">&#36;{{item.price}}</p>
+      <ul class="list-group list-group-flush" *ngFor="let offer of item.offers">
+        <div *ngIf="offer.status == true">
+          <li class="list-group-item"><span>&#10004;</span>  {{offer.quantity}} {{offer.description}}.</li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<button (click)="getSubscriptions()">Create</button>
