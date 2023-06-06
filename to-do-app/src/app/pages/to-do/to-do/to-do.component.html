@@ -1,31 +1,10 @@
-
-<div class="heading">
-    <h2>To-do App</h2>  
-</div>
-
-
-<form class="row g-3">
-    <div class="col-md-8">
-      <label for="title" class="form-label">Title</label>
-      <input type="text"  ngModel="todo.title" name="title" [(ngModel)]="todoModel.title" class="form-control" id="title">
-    </div>
-    <div class="col-md-3">
-      <label for="day" class="form-label">Day</label>
-      <input type="text"  ngModel="todo.day" name="day" [(ngModel)]="todoModel.day" class="form-control" id="day">
-    </div>
-    <div class="col-md-3">
-      <label for="date"  class="form-label">Date</label>
-      <input type="text" ngModel="todo.date" name="date" [(ngModel)]="todoModel.date" class="form-control" id="date">
-    </div>
-    <div class="col-md-2">
-      <label for="status" class="form-label">status</label>
-      <input type="text" ngModel="todo.status" name="status" [(ngModel)]="todoModel.status" class="form-control" id="status">
-    </div>
-    <div class="col-md-2">
-      <button type="submit" (click)="saveChanges()" class="btn btn-primary">Create Task</button>
-    </div>
-  </form>
-<table class="table table-hover">
+<div class="container">
+  <h2>To-do App</h2>
+  <div class="modal-button">
+    <button class="btn btn-primary" (click)="openModal()">Create Task</button>
+  </div>
+  <!-- list -->
+  <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">Sr No.</th>
@@ -38,14 +17,174 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of allTasks;let i = index">
-        <td>{{i+1}}</td>
+      <tr *ngFor="let item of allTasks;">
         <td>{{item.title}}</td>
         <td>{{item.day}}</td>
         <td>{{item.status}}</td>
         <td>{{item.date}}</td>
-        <!-- <td><button class="bg-success" (click)="editTask(item.id)">Update</button></td> -->
-        <td><button class="bg-danger" (click)="delete(item)">Delete</button></td>
+        <td><button (click)="openModal2()" (click)="editTask(item)"><strong>&#9998;</strong></button></td>
+        <td><button class="bg-danger" (click)="delete(item)"><strong>X</strong></button></td>
       </tr>
     </tbody>
   </table>
+  <h1 *ngIf="registerSucess">Tasl Created Succesfully</h1>
+  <!--Create Modal  -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Create Task</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModal()"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3" >
+            <div class="col-md-8">
+              <label for="title" class="form-label"><strong>Title</strong></label>
+              <input type="text" ngModel="todo.title" #title="ngModel" name="title" [(ngModel)]="todoModel.title"
+                required minlength="4" class="form-control" id="title" placeholder="Enter Task">
+              <span *ngIf="title.invalid && (title.dirty || title.touched)" class="alert">
+
+                <span *ngIf="title.errors?.['required']">
+                  title is required.
+                </span>
+                <span *ngIf="title.errors?.['minlength']">
+                  title must be at least 4 characters long.
+                </span>
+              </span>
+            </div>
+            <div class="col-md-4">
+              <label for="day" class="form-label"><strong>Day</strong></label>
+              <input type="text" ngModel="todo.day" #day="ngModel" name="day" [(ngModel)]="todoModel.day" required
+                minlength="4" class="form-control" id="day" placeholder="Enter day">
+              <span *ngIf="day.invalid && (day.dirty || day.touched)" class="alert">
+
+                <span *ngIf="day.errors?.['required']">
+                  day is required.
+                </span>
+                <span *ngIf="day.errors?.['minlength']">
+                  day must be at least 2 characters long.
+                </span>
+              </span>
+            </div>
+            <div class="col-md-6">
+              <label for="date" class="form-label"><strong>Date</strong></label>
+              <input type="text" ngModel="todo.date" #date="ngModel" name="date" [(ngModel)]="todoModel.date" required
+                minlength="4" class="form-control" id="date" placeholder="Enter Date">
+              <span *ngIf="date.invalid && (date.dirty || date.touched)" class="alert">
+
+                <span *ngIf="date.errors?.['required']">
+                  date is required.
+                </span>
+                <span *ngIf="date.errors?.['minlength']">
+                  date must be at least 4 characters long.
+                </span>
+              </span>
+            </div>
+            <div class="col-md-6">
+              <label for="status" class="form-label"><strong>status</strong></label>
+              <input type="text" ngModel="todo.status" #status="ngModel" name="status" [(ngModel)]="todoModel.status"
+                required minlength="4" class="form-control" id="status" placeholder="Enter Status">
+              <span *ngIf="status.invalid && (status.dirty || status.touched)" class="alert">
+
+                <span *ngIf="status.errors?.['required']">
+                  status is required.
+                </span>
+                <span *ngIf="status.errors?.['minlength']">
+                  status must be at least 3 characters long.
+                </span>
+              </span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()" data-bs-dismiss="modal">Close</button>
+          <div *ngIf="title.valid && date.valid && day.valid && status.valid" disabled="disabled" >
+            <button type="button" (click)="saveChanges()" class="btn btn-primary">Save
+              changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!--Update Modal  -->
+   <div class="modal" id="myModal2">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Update Task</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModal2()"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3" >
+            <div class="col-md-8">
+              <label for="title" class="form-label"><strong>Title</strong></label>
+              <input type="text" ngModel="todo.title" #title="ngModel" name="title" [(ngModel)]="todoModel.title"
+                required minlength="4" class="form-control" id="title" placeholder="Enter Task">
+              <span *ngIf="title.invalid && (title.dirty || title.touched)" class="alert">
+
+                <span *ngIf="title.errors?.['required']">
+                  title is required.
+                </span>
+                <span *ngIf="title.errors?.['minlength']">
+                  title must be at least 4 characters long.
+                </span>
+              </span>
+            </div>
+            <div class="col-md-4">
+              <label for="day" class="form-label"><strong>Day</strong></label>
+              <input type="text" ngModel="todo.day" #day="ngModel" name="day" [(ngModel)]="todoModel.day" required
+                minlength="4" class="form-control" id="day" placeholder="Enter day">
+              <span *ngIf="day.invalid && (day.dirty || day.touched)" class="alert">
+
+                <span *ngIf="day.errors?.['required']">
+                  day is required.
+                </span>
+                <span *ngIf="day.errors?.['minlength']">
+                  day must be at least 2 characters long.
+                </span>
+              </span>
+            </div>
+            <div class="col-md-6">
+              <label for="date" class="form-label"><strong>Date</strong></label>
+              <input type="text" ngModel="todo.date" #date="ngModel" name="date" [(ngModel)]="todoModel.date" required
+                minlength="4" class="form-control" id="date" placeholder="Enter Date">
+              <span *ngIf="date.invalid && (date.dirty || date.touched)" class="alert">
+
+                <span *ngIf="date.errors?.['required']">
+                  date is required.
+                </span>
+                <span *ngIf="date.errors?.['minlength']">
+                  date must be at least 4 characters long.
+                </span>
+              </span>
+            </div>
+            <div class="col-md-6">
+              <label for="status" class="form-label"><strong>status</strong></label>
+              <input type="text" ngModel="todo.status" #status="ngModel" name="status" [(ngModel)]="todoModel.status"
+                required minlength="4" class="form-control" id="status" placeholder="Enter Status">
+              <span *ngIf="status.invalid && (status.dirty || status.touched)" class="alert">
+
+                <span *ngIf="status.errors?.['required']">
+                  status is required.
+                </span>
+                <span *ngIf="status.errors?.['minlength']">
+                  status must be at least 3 characters long.
+                </span>
+              </span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal2()" data-bs-dismiss="modal">Close</button>
+          <div *ngIf="title.valid && date.valid && day.valid && status.valid" disabled="disabled" >
+            <button type="button" (click)="updateChanges()" class="btn btn-primary">Update
+              changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
