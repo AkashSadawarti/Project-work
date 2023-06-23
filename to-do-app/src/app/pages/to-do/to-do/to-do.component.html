@@ -1,5 +1,9 @@
+
 <div class="container">
-  <h2>To-do App</h2>
+  <div class="app-title">
+    <h2><strong> Welcome to To-Do App</strong></h2>
+  </div>
+  <hr>
   <div class="modal-button">
     <button class="btn btn-primary" (click)="openModal()">Create Task</button>
   </div>
@@ -13,32 +17,34 @@
         <th scope="col">Status</th>
         <th scope="col">Date</th>
         <th scope="col"></th>
-        <th scope="col"></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of allTasks;">
+      <tr *ngFor="let item of allTasks; let i = index">
+        <td>{{i + 1}}</td>
         <td>{{item.title}}</td>
         <td>{{item.day}}</td>
         <td>{{item.status}}</td>
         <td>{{item.date}}</td>
-        <td><button (click)="openModal2()" (click)="editTask(item)"><strong>&#9998;</strong></button></td>
-        <td><button class="bg-danger" (click)="delete(item)"><strong>X</strong></button></td>
+        <td><button type="button" (click)="openModal2()" (click)="editTask(item)"
+            class="btn btn-info">&#9998;</button></td>
+        <td><button type="button" (click)="delete(item)" class="btn btn-danger"><strong>X</strong></button></td>
       </tr>
     </tbody>
   </table>
-  <h1 *ngIf="registerSucess">Tasl Created Succesfully</h1>
+
   <!--Create Modal  -->
   <div class="modal" id="myModal">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5">Create Task</h1>
+          <h1 class="modal-title fs-5"><strong>Create Task</strong></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModal()"
             aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form class="row g-3" >
+          <form class="row g-3">
             <div class="col-md-8">
               <label for="title" class="form-label"><strong>Title</strong></label>
               <input type="text" ngModel="todo.title" #title="ngModel" name="title" [(ngModel)]="todoModel.title"
@@ -99,7 +105,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="closeModal()" data-bs-dismiss="modal">Close</button>
-          <div *ngIf="title.valid && date.valid && day.valid && status.valid" disabled="disabled" >
+          <div *ngIf="title.valid && date.valid && day.valid && status.valid" disabled="disabled">
             <button type="button" (click)="saveChanges()" class="btn btn-primary">Save
               changes</button>
           </div>
@@ -108,8 +114,8 @@
     </div>
   </div>
 
-   <!--Update Modal  -->
-   <div class="modal" id="myModal2">
+  <!--Update Modal  -->
+  <div class="modal" id="myModal2">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -118,7 +124,7 @@
             aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form class="row g-3" >
+          <form class="row g-3">
             <div class="col-md-8">
               <label for="title" class="form-label"><strong>Title</strong></label>
               <input type="text" ngModel="todo.title" #title="ngModel" name="title" [(ngModel)]="todoModel.title"
@@ -179,7 +185,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" (click)="closeModal2()" data-bs-dismiss="modal">Close</button>
-          <div *ngIf="title.valid && date.valid && day.valid && status.valid" disabled="disabled" >
+          <div *ngIf="title.valid && date.valid && day.valid && status.valid" disabled="disabled">
             <button type="button" (click)="updateChanges()" class="btn btn-primary">Update
               changes</button>
           </div>
