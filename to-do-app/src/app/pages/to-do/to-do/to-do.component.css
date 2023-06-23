@@ -1,11 +1,29 @@
-h2 {
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.container{
+  border: 1px solid ;
+  background-color: aliceblue;
+}
+
+.app-title {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    font-weight:bolder;
+    background-color: #cdcdcd ;
 }
 
 .modal-button {
     float: right;
 }
+
+.modal-content{
+    font-weight: 500;
+    border-radius: 10px;
+}
+
 
 .alert {
     color: red;
