@@ -88,9 +88,9 @@ export class ToDoComponent implements OnInit {
   // }
 
   updateChanges() {
-    this.todoModel = this.todoModel;
+    this.requestPayload = this.todoModel;
     console.log(JSON.stringify(this.todoModel));
-    this.editTask(this.todoModel)
+    this.editTask(this.requestPayload)
     console.log("task updated succesfully.");
     this.closeModal();
   }
