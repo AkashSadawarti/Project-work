@@ -6,6 +6,8 @@
                 <tr>
                     <th scope="col">Sr No.</th>
                     <th scope="col">Product Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Manufacturing</th>
                     <th scope="col">Created At</th>
                     <th scope="col">Updated At</th>
                     <th scope="col">Published At</th>
@@ -15,6 +17,8 @@
                 <tr *ngFor="let item of Products, let i = index">
                     <th scope="row">{{i+1}}</th>
                     <td>{{item.Name}}</td>
+                    <td>{{item.type}}</td>
+                    <td>{{item.mfg}}</td>
                     <td>{{item.createdAt}}</td>
                     <td>{{item.updatedAt}}</td>
                     <td>{{item.publishedAt}}</td>
