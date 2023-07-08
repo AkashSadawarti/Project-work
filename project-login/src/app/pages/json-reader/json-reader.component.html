@@ -1,0 +1,38 @@
+<p>json-reader works!</p>
+<!-- <mat-slide-toggle>Toggle me!</mat-slide-toggle> -->
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Sr No.</th>
+            <th scope="col">QuestionId</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">OptionA</th>
+            <th scope="col">OptionB</th>
+            <th scope="col">OptionC</th>
+            <th scope="col">OptionD</th>
+            <th scope="col">Category</th>
+            <th scope="col">Sub-Category</th>
+            <th scope="col">CreatedOn</th>
+            <th scope="col">Active</th>
+            <th scope="col">Multiple Answer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of questions, let i = index">
+            <td>{{i+1}}</td>
+            <td>{{item.questionId}}</td>
+            <td>{{item.Title}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.optionA}}</td>
+            <td>{{item.optionB}}</td>
+            <td>{{item.optionC}}</td>
+            <td>{{item.optionD}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.subcategory}}</td>
+            <td>{{item.createdOn}}</td>
+            <td>{{item.active}}</td>
+            <td>{{item.multipleAnswer}}</td> 
+        </tr>
+    </tbody>
+</table>
