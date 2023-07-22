@@ -1,0 +1,63 @@
+<div class="container">
+    <h2>Registration Form</h2>
+    <form class="example-form">
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td><mat-form-field class="example-full-width">
+                        <mat-label>First name</mat-label>
+                        <input matInput name="firstname" [(ngModel)]="firstname">
+                    </mat-form-field></td>
+                <td><mat-form-field class="example-full-width">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput name="lastname" [(ngModel)]="lastname">
+                    </mat-form-field></td>
+            </tr>
+        </table>
+        <mat-form-field class="example-full-width">
+            <mat-label>Residential Address</mat-label>
+            <textarea matInput placeholder="Residential Address..." name="Address1" [(ngModel)]="Address1"></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Office Address</mat-label>
+            <textarea matInput name="Address2" [(ngModel)]="Address2" placeholder="Office Address..."></textarea>
+        </mat-form-field>
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td><mat-form-field class="example-full-width">
+                        <mat-label>Mobile Number</mat-label>
+                        <span matPrefix>+91 &nbsp;</span>
+                        <input type="tel" matInput name="mobileno" [(ngModel)]="mobileno" placeholder="Mobile No.">
+                        <!-- <mat-icon matSuffix>mode_edit</mat-icon> -->
+                    </mat-form-field></td>
+                <td class="radio">
+                    <mat-radio-group aria-label="Select an option" name="gender" [(ngModel)]="gender">
+                        <mat-label><strong>Select Gender : </strong></mat-label>
+                        <mat-radio-button value="Male">Male</mat-radio-button>
+                        <mat-radio-button value="Female">Female</mat-radio-button>
+                        <mat-radio-button value="Other">Other</mat-radio-button>
+                    </mat-radio-group>
+                </td>
+            <tr>
+        </table>
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td><mat-form-field class="example-full-width">
+                        <mat-label>City</mat-label>
+                        <input matInput name="city" [(ngModel)]="city" placeholder="Ex. Nagpur">
+                    </mat-form-field></td>
+                <td><mat-form-field class="example-full-width">
+                        <mat-label>State</mat-label>
+                        <input matInput name="state" [(ngModel)]="state" placeholder="Ex. India">
+                    </mat-form-field></td>
+                <td><mat-form-field class="example-full-width">
+                        <mat-label>Postal Code</mat-label>
+                        <input matInput name="pincode" [(ngModel)]="pincode" #postalCode maxlength="7" placeholder="Ex. 440001">
+                        <!-- <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint> -->
+                    </mat-form-field></td>
+            </tr>
+        </table>
+        <button mat-raised-button color="primary" (click)="Register()">Register</button>
+    </form>
+
+
+</div>
