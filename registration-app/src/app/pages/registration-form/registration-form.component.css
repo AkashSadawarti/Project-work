@@ -1,0 +1,27 @@
+.container{
+    border-radius: 20px;
+    text-align: center;
+    background-color:#cdcdcd;
+}
+
+.example-form {
+ padding :20px 40px;
+ text-align:center;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+/* .Telephone-width{
+  width: 40%;
+  align-content: flex-start;
+} */
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }
+
+
+td {
+  padding-right: 8px;
+}
